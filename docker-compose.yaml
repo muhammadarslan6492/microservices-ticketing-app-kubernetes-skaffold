@@ -1,0 +1,27 @@
+version: '3'
+services:
+  minikube:
+    image: gcr.io/k8s-minikube/kicbase:v0.0.28
+    privileged: true
+    ports:
+      - 8443:8443
+    volumes:
+      - type: volume
+        source: minikube-data
+        target: /data
+      - type: volume
+        source: minikube-home
+        target: /root
+    environment:
+      - MINIKUBE_IN_STYLE=false
+      - CHANGE_MINIKUBE_NONE_USER=true
+    networks:
+      - minikube-net
+
+volumes:
+  minikube-data:
+  minikube-home:
+
+networks:
+  minikube-net:
+    driver: bridge

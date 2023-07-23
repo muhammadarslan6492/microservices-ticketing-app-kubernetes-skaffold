@@ -3,3 +3,6 @@ docker build -t auth .
 docker tag auth arslandocker123/auth 
 
 docker push arslandocker123/auth
+
+
+skaffold dev
