@@ -6,3 +6,9 @@ docker push arslandocker123/auth
 
 
 skaffold dev
+
+
+HOST FILE \Windows\System32\Drivers\etc\host
+
+
+gcloud container clusters get-credentials ticketing-dev

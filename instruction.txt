@@ -1,0 +1,16 @@
+// google cloud
+
+// create project 
+
+// setup kubernetes cluster 
+
+// configure google cloud sdk 
+
+// configure cloud build 
+
+// configure skaffold.yaml
+
+// setup Ingress
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.0.0/deploy/static/provider/cloud/deploy.yaml
+
+// load balancer
