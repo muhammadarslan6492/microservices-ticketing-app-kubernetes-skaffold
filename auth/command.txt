@@ -12,3 +12,19 @@ HOST FILE \Windows\System32\Drivers\etc\host
 
 
 gcloud container clusters get-credentials ticketing-dev
+
+steps
+// gcloud auth login
+
+// gcloud init
+
+// gcloud container clusters get-credentials ticketing-dev
+
+// cloud Build Api (enable) 
+
+// ingress-nginx on cloud
+
+//GCE-GKE
+
+// LOADBALANCER
+
