@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
+import { config } from 'dotenv';
 
 import { app } from './app';
+
+config();
 
 const start = async () => {
   if (!process.env.JWT_KEY) {
@@ -11,8 +14,15 @@ const start = async () => {
     await mongoose.connect('mongodb://auth-mongo-srv:27017/auth', {
       useNewUrlParser: true,
       useUnifiedTopology: true,
-      useCreateIndex: true
+      useCreateIndex: true,
     });
+
+    // await mongoose.connect('mongodb://127.0.0.1:27017/auth', {
+    //   useNewUrlParser: true,
+    //   useUnifiedTopology: true,
+    //   useCreateIndex: true,
+    // });
+
     console.log('Connected to MongoDb');
   } catch (err) {
     console.error(err);
