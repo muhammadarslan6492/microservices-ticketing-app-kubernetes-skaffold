@@ -1,21 +1,3 @@
-apiVersion: skaffold/v2alpha3
-kind: Config
-deploy:
-  kubectl:
-    manifests:
-      - ./infra/k8s/*
-build:
-  local:
-    push: false
-  artifacts:
-    - image: arslandocker123/auth
-      context: auth
-      docker:
-        dockerfile: Dockerfile
-      sync:
-        manual:
-          - src: 'src/**/*.ts'
-            dest: .
 # apiVersion: skaffold/v2alpha3
 # kind: Config
 # deploy:
@@ -23,12 +5,10 @@ build:
 #     manifests:
 #       - ./infra/k8s/*
 # build:
-#   # local:
-#   #   push: false
-#   googleCloudBuild:
-#     projectId: ticketing-dev-393807
+#   local:
+#     push: false
 #   artifacts:
-#     - image: us.gcr.io/ticketing-dev-393807/auth
+#     - image: arslandocker123/auth
 #       context: auth
 #       docker:
 #         dockerfile: Dockerfile
@@ -36,3 +16,40 @@ build:
 #         manual:
 #           - src: 'src/**/*.ts'
 #             dest: .
+#     - image: arslandocker123/client
+#       context: client
+#       docker:
+#         dockerfile: dockerfile
+#       sync:
+#         manual:
+#           - src: '**/*.js'
+#             dest: .
+# production
+apiVersion: skaffold/v2alpha3
+kind: Config
+deploy:
+  kubectl:
+    manifests:
+      - ./infra/k8s/*
+build:
+  # local:
+  #   push: false
+  googleCloudBuild:
+    projectId: ticketing-dev-393807
+  artifacts:
+    - image: us.gcr.io/ticketing-dev-393807/auth
+      context: auth
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: 'src/**/*.ts'
+            dest: .
+    - image: us.gcr.io/ticketing-dev-393807/client
+      context: client
+      docker:
+        dockerfile: Dockerfile
+      sync:
+        manual:
+          - src: '**/*.js'
+            dest: .
