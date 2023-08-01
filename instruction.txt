@@ -26,3 +26,8 @@ kubectl create clusterrolebinding cluster-admin-binding \
 /// get servics with namespace using ingress-nginx
 kubectl get namespace
 kubectl get services -n ingress-nginx
+
+
+
+
+///npm publish --access public
